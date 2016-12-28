@@ -1,0 +1,12 @@
+.button {
+  border: none;
+  border-radius: 2px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: 300;
+
+  &.primary {
+    color: white;
+    background-color: $blue-primary;
+  }
+}

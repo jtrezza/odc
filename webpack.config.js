@@ -2,20 +2,19 @@ var webpack = require('webpack');
 var ENV = process.env.NODE_ENV;
 
 var globals = {
-  "process.env.NODE_ENV" : JSON.stringify(ENV),
-  __DEV__ : ENV === "development"
+  'process.env.NODE_ENV' : JSON.stringify(ENV),
+  __DEV__ : ENV === 'development'
 };
-const getPlugins = function(env){
+const getPlugins = function(env) {
   var plugins = [
     new webpack.DefinePlugin(globals),
-    new webpack.optimize.OccurenceOrderPlugin(),
-  ]
+    new webpack.optimize.OccurenceOrderPlugin()
+  ];
 
-  switch (env) {
-    case "production":
+  switch(env) {
+    case 'production':
       plugins.push(new webpack.optimize.DedupePlugin());
-      plugins.push(new webpack.optimize.UglifyJsPlugin(
-	{
+      plugins.push(new webpack.optimize.UglifyJsPlugin({
          compress: {
            warnings: false
          },
@@ -24,19 +23,20 @@ const getPlugins = function(env){
          },
          sourceMap: false
         }
-    ));
+      ));
       break;
+    default:
+      void(0);
   }
-   // console.log("globalsbrokers", globals);
-   return plugins
-}
+   return plugins;
+};
 
 module.exports = {
   debug: true,
   devTool: '',
-  entry: './app/assets/react_app/App.jsx',
+  entry: './app/App.jsx',
   output: {
-    path: __dirname + '/public/javascripts',
+    path: __dirname + '/assets/javascripts',
     filename: 'app.js'
   },
   target: 'web',
@@ -56,5 +56,5 @@ module.exports = {
   eslint: {
     failOnWarning: false,
     failOnError: false
-  },
+  }
 };

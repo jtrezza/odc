@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NavItem from '../components/nav-item.jsx';
 import TopBar from '../components/top-bar.jsx';
+import NewMenu from '../components/new-menu.jsx';
 import {connect} from 'react-redux';
 
 class MainLayout extends Component {
@@ -24,7 +25,10 @@ class MainLayout extends Component {
         </nav>
         <div className="main-layout__panel">
           <TopBar />
-          <div className="panel-content">{this.props.children}</div>
+          <div className="panel-content">
+            {true && <NewMenu />}
+            {this.props.children}
+          </div>
         </div>
       </div>
     );

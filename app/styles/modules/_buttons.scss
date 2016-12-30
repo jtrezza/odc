@@ -1,4 +1,4 @@
-.button {
+.btn {
   border: none;
   border-radius: 2px;
   padding: 8px 12px;
@@ -17,5 +17,20 @@
     &:active {
       background-color: $blue-primary--active;
     }
+  }
+}
+
+.new-button {
+  background-color: $nav-hover;
+  cursor: pointer;
+  height: 100%;
+  text-align: center;
+  width: 45px;
+
+  &__icon {
+    color: white;
+    font-size: 1.7rem;
+    position: relative;
+    top: 9px;
   }
 }

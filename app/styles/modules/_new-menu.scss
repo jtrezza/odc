@@ -1,0 +1,33 @@
+.new-menu__content{
+  width: 600px;
+  height: 200px;
+  position: absolute;
+  left: calc(50% - 310px);
+  top: 53px;
+  background-color: white;
+  border-style: solid;
+  border-color: $dark-blue;
+  border-width: 1px;
+  border-radius: 2px;
+  margin-left: 2px;
+  padding: 15px 8px;
+
+  box-shadow: 0 8px 17px -13px #000,-8px 0 17px -13px #000,8px 0 17px -13px #000;
+
+  transition: top 0.3s ease;
+}
+
+.menu-tip{
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-style: solid;
+  border-width: 1px 0 0 1px;
+  border-color: $dark-blue;
+  position: absolute;
+  left: calc(50% - 6px);
+  top: 48px;
+  transform: rotate(45deg);
+  z-index: 2;
+  transition: top 0.3s ease;
+}

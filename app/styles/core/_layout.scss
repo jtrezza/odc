@@ -1,8 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 16px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: $text-header;
+}
+
 .main-layout {
   display: flex;
+
+  &__panel {
+    position: relative;
+    width: 100%;
+
+    .main-top-bar {
+      background-color: $light-blue;
+      display: flex;
+      height: 45px;
+      justify-content: space-around;
+
+      div[class^="top-bar--"] {
+        width: 33.333%;
+      }
+
+      .top-bar--middle {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .panel-content {
+      padding: 15px;
+    }
+  }
 }

@@ -6,7 +6,16 @@
   font-weight: 300;
 
   &.primary {
-    color: white;
     background-color: $blue-primary;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $blue-primary--hover;
+    }
+
+    &:active {
+      background-color: $blue-primary--active;
+    }
   }
 }

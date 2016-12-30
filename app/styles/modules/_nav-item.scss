@@ -1,0 +1,28 @@
+.nav-item{
+
+  width: 160px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  a{
+    color: $inactive-font;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  &:hover{
+    background-color: $nav-hover;
+    span {
+      color: white;
+    }
+  }
+
+  &__icon{
+    width: 45px;
+    text-align: center;
+    font-size: 22px;
+  }
+}

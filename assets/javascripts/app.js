@@ -13348,6 +13348,14 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _navItem = __webpack_require__(288);
+
+	var _navItem2 = _interopRequireDefault(_navItem);
+
+	var _topBar = __webpack_require__(290);
+
+	var _topBar2 = _interopRequireDefault(_topBar);
+
 	var _reactRedux = __webpack_require__(106);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -13361,10 +13369,10 @@
 	var MainLayout = function (_Component) {
 	  _inherits(MainLayout, _Component);
 
-	  function MainLayout(props) {
+	  function MainLayout() {
 	    _classCallCheck(this, MainLayout);
 
-	    return _possibleConstructorReturn(this, (MainLayout.__proto__ || Object.getPrototypeOf(MainLayout)).call(this));
+	    return _possibleConstructorReturn(this, (MainLayout.__proto__ || Object.getPrototypeOf(MainLayout)).apply(this, arguments));
 	  }
 
 	  _createClass(MainLayout, [{
@@ -13372,8 +13380,41 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
-	        this.props.children
+	        { className: 'main-layout' },
+	        _react2.default.createElement(
+	          'nav',
+	          { className: 'main-nav' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'main-nav__logo' },
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'logo__text' },
+	              'ODC'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'main-nav__list-items' },
+	            _react2.default.createElement(_navItem2.default, { url: '', icon: 'fa fa-tachometer', label: 'Inicio' }),
+	            _react2.default.createElement(_navItem2.default, { url: '', icon: 'fa fa-users', label: 'Clientes' }),
+	            _react2.default.createElement(_navItem2.default, { url: '', icon: 'fa fa-truck', label: 'Proveedores' }),
+	            _react2.default.createElement(_navItem2.default, { url: '', icon: 'fa fa-black-tie', label: 'Empleados' }),
+	            _react2.default.createElement(_navItem2.default, { url: '', icon: 'fa fa-tags', label: 'Inventarios' }),
+	            _react2.default.createElement(_navItem2.default, { url: '', icon: 'fa fa-exchange', label: 'Transacciones' }),
+	            _react2.default.createElement(_navItem2.default, { url: '', icon: 'fa fa-bar-chart', label: 'Reportes' })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'main-layout__panel' },
+	          _react2.default.createElement(_topBar2.default, null),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'panel-content' },
+	            this.props.children
+	          )
+	        )
 	      );
 	    }
 	  }]);
@@ -29930,6 +29971,161 @@
 		return module;
 	}
 
+
+/***/ },
+/* 288 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(5);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(119);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (_ref) {
+	  var url = _ref.url,
+	      icon = _ref.icon,
+	      label = _ref.label;
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'nav-item' },
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: url },
+	      _react2.default.createElement('span', { className: 'nav-item__icon ' + icon }),
+	      _react2.default.createElement(
+	        'span',
+	        null,
+	        label
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(5);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _class = function (_React$Component) {
+	  _inherits(_class, _React$Component);
+
+	  function _class() {
+	    _classCallCheck(this, _class);
+
+	    return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	  }
+
+	  _createClass(_class, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'new-menu' },
+	        _react2.default.createElement('div', { className: this.props.hidden ? 'menu-tip menu-hidden' : 'menu-tip' }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: this.props.hidden ? 'new-menu__content menu-hidden' : 'new-menu__content' },
+	          'oaisdjfoiasdjf'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return _class;
+	}(_react2.default.Component);
+
+	exports.default = _class;
+
+/***/ },
+/* 290 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(5);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(106);
+
+	var _newMenu = __webpack_require__(289);
+
+	var _newMenu2 = _interopRequireDefault(_newMenu);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var TopBar = function TopBar(_ref) {
+	  var newMenuState = _ref.newMenuState,
+	      click = _ref.click;
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'main-top-bar' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'top-bar--left top-bar__part' },
+	      _react2.default.createElement(_newMenu2.default, { hidden: !newMenuState })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'top-bar--middle top-bar__part' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'search-box' },
+	        _react2.default.createElement('input', { type: 'text', className: 'search-box__input', placeholder: 'Buscar transacciones' }),
+	        _react2.default.createElement('span', { className: 'fa fa-search search-box__magnifier' })
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'top-bar--right top-bar__part' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'top-bar__button' + (true && ' ') },
+	        _react2.default.createElement('span', { className: 'top-bar__button-icon fa fa-user' }),
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'top-bar__button-label' },
+	          '\'Droguer\xEDa Luzma\''
+	        )
+	      )
+	    )
+	  );
+	};
+
+	exports.default = TopBar;
 
 /***/ }
 /******/ ]);

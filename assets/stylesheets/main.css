@@ -2,6 +2,9 @@ body {
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 16px; }
 
+.main-layout {
+  display: flex; }
+
 .button {
   border: none;
   border-radius: 2px;
@@ -9,5 +12,56 @@ body {
   font-size: 0.9rem;
   font-weight: 300; }
   .button.primary {
+    background-color: #0054B6;
     color: white;
-    background-color: #0054B6; }
+    cursor: pointer; }
+    .button.primary:hover {
+      background-color: #004FAB; }
+    .button.primary:active {
+      background-color: #00499E; }
+
+.nav-item {
+  width: 160px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  cursor: pointer; }
+  .nav-item a {
+    color: red;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300; }
+  .nav-item:hover {
+    background-color: green; }
+    .nav-item:hover span {
+      color: white; }
+  .nav-item__icon {
+    width: 45px;
+    text-align: center;
+    font-size: 22px; }
+
+.search-box {
+  height: 42px;
+  display: flex;
+  align-items: center; }
+  .search-box__input {
+    box-sizing: border-box;
+    width: 190px;
+    height: 34px;
+    border: none;
+    padding: 0 10px 0 10px;
+    margin: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px; }
+  .search-box__magnifier {
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    height: 34px;
+    width: 42px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px; }

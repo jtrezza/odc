@@ -1,0 +1,30 @@
+/*  WHOLES */
+.one-whole {width: 100%;}
+
+/*  HALVES */
+.one-half {width: 50%;}
+
+/* THIRDS */
+.one-third         { width:33.333%; }
+.two-thirds        { width:66.666%; }
+
+/* FITHS */
+.one-fifth {width:20%;}
+.two-fifths {width:40%;}
+.three-fifths {width:60%;}
+.four-fifths {width:80%;}
+
+/*  NINTHS */
+.one-ninth {width: 11.111%;}
+.two-ninths {width: 22.222%;}
+
+/* TENTHS */
+.one-tenth {width:10%;}
+.two-tenths {@extend .one-fifth;}
+.three-tenths {width:30%;}
+.four-tenths {@extend .two-fifths;}
+.five-tenths {@extend .one-half;}
+.six-tenths {@extend .three-fifths;}
+.seven-tenths {width:70%;}
+.eight-tenths {@extend .four-fifths;}
+.nine-tenths {width:90%;}

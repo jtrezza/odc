@@ -1,12 +1,19 @@
 import React, {Component} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+
+import {toggleNewMenu} from '../actions/top-bar.js';
 import NavItem from '../components/nav-item.jsx';
 import TopBar from '../components/top-bar.jsx';
 import NewMenu from '../components/new-menu.jsx';
-import {connect} from 'react-redux';
+import NewSupplierModal from '../components/new-supplier-modal.jsx';
+
 
 class MainLayout extends Component {
 
   render() {
+    let {topBar} = this.props;
+
     return (
       <div className="main-layout">
         <nav className="main-nav">
@@ -24,20 +31,30 @@ class MainLayout extends Component {
           </ul>
         </nav>
         <div className="main-layout__panel">
-          <TopBar />
+          <TopBar showNewMenu={topBar.showNewMenu} toggleNewMenu={this.props.toggleNewMenu} />
           <div className="panel-content">
-            {true && <NewMenu />}
+            {topBar.showNewMenu && <NewMenu />}
             {this.props.children}
           </div>
         </div>
+
+        <NewSupplierModal hideModal={e => true} />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {};
+  return {
+    topBar: state.topBar
+  };
 };
 
-const connectedComponent = connect(mapStateToProps)(MainLayout);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    toggleNewMenu
+  }, dispatch);
+};
+
+const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(MainLayout);
 export default connectedComponent;

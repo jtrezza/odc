@@ -1,0 +1,26 @@
+.modal-window {
+  
+  .modal-header {
+    font-size: 1.6rem;
+    padding-bottom: 8px;
+  }
+
+  &__close-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    height: 25px;
+    outline: 0;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    top: 10px;
+    width: 25px;
+    z-index: 2;
+
+    span.fa {
+      color: #474747;
+      font-size: 1.4rem;
+    }
+  }
+}

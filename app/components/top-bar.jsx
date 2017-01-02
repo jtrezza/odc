@@ -1,13 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-const TopBar = ({newMenuState, click}) => (
+const TopBar = ({showNewMenu, toggleNewMenu}) => (
       <div className="main-top-bar">
         <div className="top-bar--left">
         </div>
         <div className="top-bar--middle">
-          <div className="new-button">
-            <span className="fa fa-plus new-button__icon"></span>
+          <div className="new-button" onClick={toggleNewMenu}>
+            <span className={`fa fa-plus-circle new-button__icon${showNewMenu ? ' close' : ''}`}></span>
           </div>
         </div>
         <div className="top-bar--right">

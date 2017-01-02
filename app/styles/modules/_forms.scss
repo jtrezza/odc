@@ -1,0 +1,52 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-of-type) {
+      padding-right: 4px;
+    }
+
+    label {
+      color: $text-label;
+      font-size: 0.87rem;
+      font-weight: 700;
+    }
+
+    input[type=text] {
+      outline: none;
+      height: 32px;
+      border: 1px solid #babec5;
+      padding: 0 8px;
+      border-radius: 2px;
+      font-size: 0.81rem;
+      background-color: #ffffff;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      width: 100%;
+      vertical-align: middle;
+    }
+
+    .center-text {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+.two-columns-form {
+  display: flex;
+  justify-content: space-between;
+
+  .column {
+    width: 48%;
+  }
+}
+.form-buttons {
+  padding-top: 25px;
+}

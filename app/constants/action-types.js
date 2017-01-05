@@ -1,1 +1,2 @@
 export const TOGGLE_NEW_MENU = 'TOGGLE_NEW_MENU';
+export const TOGGLE_LOGIN_FORM = 'TOGGLE_LOGIN_FORM';

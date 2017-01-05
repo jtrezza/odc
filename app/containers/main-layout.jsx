@@ -38,7 +38,7 @@ class MainLayout extends Component {
           </div>
         </div>
 
-        <NewSupplierModal hideModal={e => true} />
+        <NewSupplierModal isOpen={false} hideModal={e => true} />
       </div>
     );
   }

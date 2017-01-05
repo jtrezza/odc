@@ -5,11 +5,11 @@ import {modalStyles} from '../constants/common';
 export default class PreviousDayModal extends React.Component {
 
   render() {
-    let {hideModal} = this.props;
+    let {hideModal, isOpen} = this.props;
 
     return (
       <Modal
-        isOpen={true}
+        isOpen={isOpen}
         onRequestClose={hideModal}
         contentLabel="Modal"
         style={modalStyles}>
@@ -24,7 +24,7 @@ export default class PreviousDayModal extends React.Component {
                   <input id="js-" type="text"/>
                 </div>
                 <div className="form-group two-fifths">
-                  <label htmlFor=""># identificación</label>
+                  <label htmlFor=""># Identificación</label>
                   <input id="js-" type="text"/>
                 </div>
                 <div className="form-group two-fifths">
@@ -69,25 +69,25 @@ export default class PreviousDayModal extends React.Component {
               <div className="row">
                 <div className="form-group one-fifth">
                   <label htmlFor="">Dirección</label>
-                  <input id="js-" type="text"/>
+                  <input id="js-" type="text" placeholder="CL / CR 0"/>
                 </div>
                 <div className="form-group one-tenth relative">
                   <span className="center-text">#</span>
                 </div>
                 <div className="form-group one-tenth">
                   <label htmlFor="">&nbsp;</label>
-                  <input id="js-" type="text"/>
+                  <input id="js-" type="text" placeholder="00"/>
                 </div>
                 <div className="form-group one-tenth relative">
                   <span className="center-text">-</span>
                 </div>
                 <div className="form-group one-tenth">
                   <label htmlFor="">&nbsp;</label>
-                  <input id="js-" type="text"/>
+                  <input id="js-" type="text" placeholder="00"/>
                 </div>
                 <div className="form-group two-fifths">
                   <label htmlFor="">Adicional</label>
-                  <input id="js-" type="text"/>
+                  <input id="js-" type="text" placeholder="Edificio / Apto."/>
                 </div>
               </div>
               <div className="row">

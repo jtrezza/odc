@@ -234,7 +234,6 @@ h1, h2, h3, h4, h5, h6 {
       font-size: 0.87rem;
       font-weight: 700; }
     .row .form-group input[type=text] {
-      outline: none;
       height: 32px;
       border: 1px solid #babec5;
       padding: 0 8px;
@@ -243,6 +242,18 @@ h1, h2, h3, h4, h5, h6 {
       background-color: #ffffff;
       box-sizing: border-box;
       -webkit-appearance: none;
+      width: 100%;
+      vertical-align: middle; }
+      .row .form-group input[type=text].error {
+        box-shadow: 0px 0px 6px 2px rgba(207, 48, 48, 0.9); }
+    .row .form-group select {
+      height: 32px;
+      border: 1px solid #babec5;
+      padding: 0 8px;
+      border-radius: 2px;
+      font-size: 0.81rem;
+      background-color: #ffffff;
+      box-sizing: border-box;
       width: 100%;
       vertical-align: middle; }
     .row .form-group .center-text {

@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/jtrezza/odc#readme",
   "dependencies": {
+    "firebase": "3.6.4",
     "react": "15.4.1",
     "react-dnd": "2.1.4",
     "react-dnd-html5-backend": "2.1.2",

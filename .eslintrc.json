@@ -56,7 +56,6 @@
         "no-useless-concat": "error",
         "no-useless-escape": "error",
         "radix": "error",
-        "vars-on-top": "error",
         "wrap-iife": ["error", "any"],
         "yoda": "error",
         "no-shadow": "error",

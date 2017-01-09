@@ -3,17 +3,32 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {toggleNewMenu} from '../actions/top-bar.js';
+import {createOrEditContact} from '../actions/contacts';
 import NavItem from '../components/nav-item.jsx';
 import TopBar from '../components/top-bar.jsx';
 import NewMenu from '../components/new-menu.jsx';
-import NewSupplierModal from '../components/new-supplier-modal.jsx';
+import NewContactModal from '../components/new-contact-modal.jsx';
 
 
 class App extends Component {
 
+  constructor() {
+    super();
+
+    var self = this;
+
+    this.hideNewContactModal = () => self.setState({showNewContactModal: false});
+    this.showNewContactModal = () => self.setState({showNewContactModal: true});
+
+    this.state = {
+      showNewContactModal: true
+    };
+  }
+
   render() {
-    debugger;
     let {topBar} = this.props;
+
+    let createContactSubmit = values => this.props.createOrEditContact(values, 'dummy_company');
 
     return (
       <div className="main-layout">
@@ -39,7 +54,13 @@ class App extends Component {
           </div>
         </div>
 
-        <NewSupplierModal isOpen={false} hideModal={e => true} />
+        <NewContactModal initialValues={{
+            is_customer: true, 
+            identification_type: 'NIT',
+            taxpayer_type: 'PJ',
+            state: '08',
+            city: '08001'}} isOpen={this.state.showNewContactModal}
+          onSubmit={createContactSubmit} hideModal={this.hideNewContactModal} />
       </div>
     );
   }
@@ -48,14 +69,14 @@ class App extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     topBar: state.topBar,
-    firebase: window.firebase,
-    currentUser: window.firebase.auth().currentUser
+    firebase: state.firebase,
+    currentUser: state.firebase.auth().currentUser
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    toggleNewMenu
+    toggleNewMenu, createOrEditContact
   }, dispatch);
 };
 

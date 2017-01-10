@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 /*  WHOLES */
 .one-whole {
   width: 100%; }
@@ -70,12 +70,19 @@
   padding: 0; }
 
 body {
+  background-color: #F6F7F9;
   color: #272727;
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+  font-weight: 400; }
 
 h1, h2, h3, h4, h5, h6 {
   color: #000000; }
+
+.header {
+  font-size: 1.7rem;
+  font-weight: 600;
+  padding-bottom: 8px; }
 
 .main-layout {
   display: flex; }
@@ -93,7 +100,7 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
         justify-content: center; }
     .main-layout__panel .panel-content {
-      padding: 15px; }
+      padding: 24px 30px 24px 20px; }
 
 .btn {
   border-style: solid;
@@ -102,8 +109,9 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
   cursor: pointer;
   padding: 8px 12px;
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 0.9rem;
-  font-weight: 300; }
+  font-weight: 400; }
   .btn.default {
     background-color: white;
     border: solid 1px #404040;
@@ -139,16 +147,15 @@ h1, h2, h3, h4, h5, h6 {
       transform: rotate(135deg); }
 
 .nav-item {
-  width: 160px;
-  height: 45px;
-  display: flex;
   align-items: center;
-  cursor: pointer; }
-  .nav-item a {
-    color: #C5CBD1;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 300; }
+  color: #C5CBD1;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  font-weight: 300;
+  height: 45px;
+  text-decoration: none;
+  width: 160px; }
   .nav-item:hover {
     background-color: #496D8F; }
     .nav-item:hover span {

@@ -4,13 +4,21 @@
 }
 
 body {
+  background-color: $bg-body;
   color: $text-body;
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 16px;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: $text-header;
+}
+
+.header {
+  font-size: 1.7rem;
+  font-weight: 600;
+  padding-bottom: 8px;
 }
 
 .main-layout {
@@ -37,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .panel-content {
-      padding: 15px;
+      padding: 24px 30px 24px 20px;
     }
   }
 }

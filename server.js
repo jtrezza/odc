@@ -3,7 +3,7 @@ var http = require('http'),
     url = require('url'),
     path = require('path'),
     fs = require('fs'),
-    port = 5000,
+    port = 3000,
     OK = 200,
     SERVER_ERROR = 500;
 

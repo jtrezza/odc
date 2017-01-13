@@ -17311,9 +17311,22 @@
 	  return _react2.default.createElement(
 	    'form',
 	    { className: 'register-form', onSubmit: handleSubmit, style: { display: showLogin ? 'none' : 'block' } },
-	    _react2.default.createElement(_reduxForm.Field, { placeholder: 'Nombre', name: 'name', component: 'input', type: 'text' }),
-	    _react2.default.createElement(_reduxForm.Field, { placeholder: 'Correo Electr\xF3nico', name: 'email', component: 'input', type: 'email' }),
-	    _react2.default.createElement(_reduxForm.Field, { placeholder: 'Contrase\xF1a', name: 'password', component: 'input', type: 'password' }),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'two-columns-form' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'column' },
+	        _react2.default.createElement(_reduxForm.Field, { placeholder: 'Nombre', name: 'name', component: 'input', type: 'text', tabIndex: '1' }),
+	        _react2.default.createElement(_reduxForm.Field, { placeholder: 'E-Mail', name: 'email', component: 'input', type: 'email', tabIndex: '3' })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'column' },
+	        _react2.default.createElement(_reduxForm.Field, { placeholder: 'Empresa', name: 'company_name', component: 'input', type: 'text', tabIndex: '2' }),
+	        _react2.default.createElement(_reduxForm.Field, { placeholder: 'Contrase\xF1a', name: 'password', component: 'input', type: 'password', tabIndex: '3' })
+	      )
+	    ),
 	    _react2.default.createElement(
 	      'button',
 	      null,
@@ -17991,8 +18004,8 @@
 	var mapStateToProps = function mapStateToProps(state, ownProps) {
 	  return {
 	    showLogin: state.loginForm.showLogin,
-	    firebase: window.firebase,
-	    currentUser: window.firebase.auth().currentUser
+	    firebase: state.firebase,
+	    currentUser: state.firebase.auth().currentUser
 	  };
 	};
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {

@@ -54,8 +54,8 @@ class HomePage extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     showLogin: state.loginForm.showLogin,
-    firebase: window.firebase,
-    currentUser: window.firebase.auth().currentUser
+    firebase: state.firebase,
+    currentUser: state.firebase.auth().currentUser
   };
 };
 const mapDispatchToProps = dispatch => {

@@ -47,6 +47,10 @@
   text-align: center;
   width: 45px;
 
+  &:hover {
+    background: $nav-double-hover;
+  }
+
   &__icon {
     color: white;
     font-size: 1.7rem;
@@ -57,5 +61,25 @@
     &.close {
       transform: rotate(135deg);
     }
+  }
+}
+
+.top-bar__button {
+  align-items: center;
+  background: $nav-hover;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.9rem;
+  font-weight: 300;
+  height: 100%;
+  padding: 0 12px;
+
+  &:hover, &.hover {
+    background-color: $nav-double-hover;
+  }
+
+  &-icon {
+    margin-right: 6px;
   }
 }

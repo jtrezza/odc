@@ -34,9 +34,9 @@ const getPlugins = function(env) {
 module.exports = {
   debug: true,
   devTool: '',
-  entry: './app/App.jsx',
+  entry: './src/App.jsx',
   output: {
-    path: __dirname + '/assets/javascripts',
+    path: __dirname + '/dist/javascripts',
     filename: 'app.js'
   },
   target: 'web',

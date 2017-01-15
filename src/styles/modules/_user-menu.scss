@@ -1,0 +1,22 @@
+.user-menu {
+  background-color: $nav-hover;
+  box-shadow: 0 8px 17px -13px #000,-8px 0 17px -13px #000,8px 0 17px -13px #000;
+  color: white;
+  margin-left: 2px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 160px;
+
+  &__item {
+    cursor: pointer;
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 10px 20px;
+
+    &:hover {
+      background-color: $nav-double-hover;
+    }
+  }
+}

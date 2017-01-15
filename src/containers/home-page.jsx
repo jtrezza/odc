@@ -3,8 +3,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import RegisterForm from '../components/register-form.jsx';
 import LoginForm from '../components/login-form.jsx';
+import { userInfoLoaded } from '../actions/login';
 
-import { toggleLoginForm } from '../actions/login-page';
+import { toggleLoginForm } from '../actions/login';
 
 class HomePage extends Component {
 
@@ -12,15 +13,13 @@ class HomePage extends Component {
     let {topBar, showLogin, firebase} = this.props;
 
     let handleRegisterSubmit = fireb => (values) => {
-      let {name, email, password} = values;
+      let {name, company_name, email, password} = values, that = this;
       fireb.auth().createUserWithEmailAndPassword(email, password)
       .then(user => {
         user.updateProfile({
-          displayName: name
-        }).then(() => {
-          console.info('Se ha cambiado el nombre ',user);
-        })
-        console.info('usuario registrado ', user);
+          displayName: name,
+          companyName: company_name
+        });
       })
       .catch(e => {
         let errorCode = e.code;
@@ -31,7 +30,7 @@ class HomePage extends Component {
       let {email, password} = values;
       fireb.auth().signInWithEmailAndPassword(email, password)
       .then(user => {
-        console.info('Usuario logueado ',user);
+        that.props.userInfoLoaded();
       })
       .catch((e) => {
         let errorCode = e.code;
@@ -53,14 +52,14 @@ class HomePage extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
   return {
-    showLogin: state.loginForm.showLogin,
+    showLogin: state.login.showLogin,
     firebase: state.firebase,
     currentUser: state.firebase.auth().currentUser
   };
 };
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    toggleLoginForm
+    toggleLoginForm, userInfoLoaded
   }, dispatch);
 };
 const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(HomePage);

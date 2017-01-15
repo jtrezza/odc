@@ -3,24 +3,23 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {APP} from '../constants/urls';
-import {toggleNewMenu} from '../actions/top-bar.js';
+import {toggleNewMenu, toggleUserMenu, hideAllMenus} from '../actions/top-bar.js';
 import {createOrEditContact} from '../actions/contacts';
 import {hideNewContactModal} from '../actions/new-contact-modal';
 import NavItem from '../components/nav-item.jsx';
 import TopBar from '../components/top-bar.jsx';
 import NewMenu from '../components/new-menu.jsx';
 import NewContactModal from '../components/new-contact-modal.jsx';
-
+import UserMenu from './user-menu.jsx';
 
 class App extends Component {
-  
-  render() {
-    let {topBar, newContactModalIsOpen} = this.props;
 
+  render() {
+    let {topBar, newContactModalIsOpen, currentUser} = this.props;
     let createContactSubmit = values => this.props.createOrEditContact(values, 'dummy_company');
 
     return (
-      <div className="main-layout">
+      <div className="main-layout" onClick={this.props.hideAllMenus}>
         <nav className="main-nav">
           <div className="main-nav__logo">
             <span className="logo__text">ODC</span>
@@ -36,10 +35,12 @@ class App extends Component {
           </ul>
         </nav>
         <div className="main-layout__panel">
-          <TopBar showNewMenu={topBar.showNewMenu} toggleNewMenu={this.props.toggleNewMenu} />
+          <TopBar showNewMenu={topBar.showNewMenu} showUserMenu={topBar.showUserMenu} currentUser={currentUser}
+            toggleNewMenu={this.props.toggleNewMenu} toggleUserMenu={this.props.toggleUserMenu} />
           <div className="panel-content">
             {topBar.showNewMenu && <NewMenu />}
             {this.props.children}
+            {topBar.showUserMenu && <UserMenu />}
           </div>
         </div>
 
@@ -66,7 +67,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    toggleNewMenu, createOrEditContact, hideNewContactModal
+    toggleNewMenu, createOrEditContact, hideNewContactModal, toggleUserMenu,
+    hideAllMenus
   }, dispatch);
 };
 

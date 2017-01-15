@@ -42,10 +42,16 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
         justify-content: center;
       }
+      .top-bar--right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
     }
 
     .panel-content {
       padding: 24px 30px 24px 20px;
+      position: relative;
     }
   }
 }

@@ -3,4 +3,5 @@
 *.log
 .idea/
 /node_modules
-/app/config/firebase-config.js
+/src/config/firebase-config.js
+/dist

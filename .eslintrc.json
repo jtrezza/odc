@@ -54,7 +54,6 @@
         "no-unmodified-loop-condition": "error",
         "no-unused-expressions": "error",
         "no-useless-concat": "error",
-        "no-useless-escape": "error",
         "radix": "error",
         "wrap-iife": ["error", "any"],
         "yoda": "error",

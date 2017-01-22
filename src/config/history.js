@@ -6,7 +6,7 @@ import { syncHistoryWithStore, push } from 'react-router-redux';
 import {createStore, applyMiddleware} from 'redux';
 import firebase from 'firebase';
 import firebaseConfig from './firebase-config';
-import { userInfoLoaded } from '../actions/login';
+import { setCurrentUser, unmountUserInfo } from '../actions/login';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -16,11 +16,14 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 firebase.auth().onAuthStateChanged(function(user) {
   if(user) {
+    if(!store.getState().login.userInfoLoaded) {
+      store.dispatch(setCurrentUser(user));
+    }
     if(window.location.pathname === '/') {
       history.push('/app');
     }
-    store.dispatch(userInfoLoaded());
   } else {
+    store.dispatch(unmountUserInfo());
     if(window.location.pathname !== '/') {
       history.push('/');
     }

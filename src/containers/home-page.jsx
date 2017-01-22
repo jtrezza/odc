@@ -3,38 +3,45 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import RegisterForm from '../components/register-form.jsx';
 import LoginForm from '../components/login-form.jsx';
-import { userInfoLoaded } from '../actions/login';
+import { loadUserInfo } from '../actions/login';
+import { createOrEditCompany } from '../actions/companies';
+import { createUser } from '../actions/users';
 
 import { toggleLoginForm } from '../actions/login';
 
 class HomePage extends Component {
 
   render() {
-    let {topBar, showLogin, firebase} = this.props;
+    let {topBar, showLogin, firebase} = this.props, that = this;
 
     let handleRegisterSubmit = fireb => (values) => {
-      let {name, company_name, email, password} = values, that = this;
+      let {name, company_name, email, password} = values;
       fireb.auth().createUserWithEmailAndPassword(email, password)
       .then(user => {
-        user.updateProfile({
-          displayName: name,
-          companyName: company_name
+        user.updateProfile({displayName: name});
+        let userIds = {}; userIds[user.uid] = true;
+        that.props.createOrEditCompany({displayName: company_name, userIds})
+        .then(company => {
+          return that.props.createUser({
+            displayName: name, company, email, id: user.uid
+          });
+        })
+        .then(({id}) => {
+          that.props.loadUserInfo(id);
         });
       })
       .catch(e => {
-        let errorCode = e.code;
-        let errorMessage = e.message;
+        let errorMessage = `Error ${e.code}: ${e.message}`;
       });
     };
     let handleLoginSubmit = fireb => (values) => {
       let {email, password} = values;
       fireb.auth().signInWithEmailAndPassword(email, password)
       .then(user => {
-        that.props.userInfoLoaded();
+        that.props.loadUserInfo(user.uid);
       })
       .catch((e) => {
-        let errorCode = e.code;
-        let errorMessage = e.message;
+        let errorMessage = `Error ${e.code}: ${e.message}`;
       });
     };
     return (
@@ -59,7 +66,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    toggleLoginForm, userInfoLoaded
+    toggleLoginForm, loadUserInfo, createOrEditCompany, createUser
   }, dispatch);
 };
 const connectedComponent = connect(mapStateToProps, mapDispatchToProps)(HomePage);

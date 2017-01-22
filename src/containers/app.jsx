@@ -16,7 +16,7 @@ class App extends Component {
 
   render() {
     let {topBar, newContactModalIsOpen, currentUser} = this.props;
-    let createContactSubmit = values => this.props.createOrEditContact(values, 'dummy_company');
+    let createContactSubmit = values => this.props.createOrEditContact(values, currentUser.company);
 
     return (
       <div className="main-layout" onClick={this.props.hideAllMenus}>
@@ -60,7 +60,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     topBar: state.topBar,
     firebase: state.firebase,
-    currentUser: state.firebase.auth().currentUser,
+    currentUser: state.login.currentUser,
     newContactModalIsOpen: state.newContactModal.isOpen
   };
 };
